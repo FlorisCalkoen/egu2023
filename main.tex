@@ -7,15 +7,14 @@
 \usepackage[backend=biber]{biblatex}
 \usepackage{hyperref}
 
-\addbibresource{references.bib}
+\addbibresource{main_biber.bib}
 \author{ Calkoen, Floris \\
   \texttt{floris.calkoen@deltares.nl}
   \and Baart, Fedor \\
   \texttt{fedor.baart@deltares.nl}
   \and Kras, Etienne \\
   \texttt{etienne.kras@deltares.nl}
-  % \and Vos, Kilian \\ 
-  % \texttt{k.vos@unsw.edu.au}
+  % \and Vos, Kilian \\ \texttt{k.vos@unsw.edu.au}
   \and Luijendijk, Arjen \\
   \texttt{arjen.luijendijk@deltares.nl}
 }
@@ -27,39 +26,56 @@
 \abstract{The coastal community widely anticipates that in the next years data-driven
   studies are going to make essential contributions to bringing about long-term coastal
   adaptation and mitigation strategies at continental scale (e.g.,
-  \cite{ranasingheNeedNewGeneration2020,turnerSatelliteOpticalImagery2021,vitousekFutureCoastalMonitoring2022}). This view is also supported by CoCliCo\footnote{\url{https://coclicoservices.eu/about/}}, a Horizon 2020 project, where coastal data form the fundamental building block for the primary deliverable, an open-web portal that aims to improve decision making on coastal risk management and adaptation. The promise of data is likely triggered by several coastal analyses (e.g.,
+  \cite{ranasingheNeedNewGeneration2020,turnerSatelliteOpticalImagery2021,vitousekFutureCoastalMonitoring2022}).
+  This view is also supported by
+  CoCliCo\footnote{\url{https://coclicoservices.eu/about/}}, a Horizon 2020 project,
+  where coastal data form the fundamental building block for the primary deliverable, an
+  open-web portal that aims to improve decision making on coastal risk management and
+  adaptation. The promise of data is likely triggered by several coastal analyses (e.g.,
   \cite{luijendijkStateWorldBeaches2018,mentaschiGlobalLongtermObservations2018,murrayGlobalDistributionTrajectory2018})
-  that showed how Earth observation data can be used to monitor the coastal zone at unprecedented spatial scales - suddenly
-  coastal science can be considered as a data-rich research field. Analyses akin typically use analysis-ready data, hosted at major
-  cloud providers, who simultaneously offer the scientists' computer instances with distributed processing tools to handle the size of
-  the data sets (e.g., \cite{gorelickGoogleEarthEngine2017}). However, we note that
-  when analyses become more complex, i.e., require specific algorithms,  pre- and post-processing or include data that are not hosted by the cloud
-  provider, the cloud-native, distributed processing workflows are often broken, which, in
-  effect, make the analyses impractical at continental scale.
-  
+  that showed how Earth observation data can be used to monitor the coastal zone at
+  unprecedented spatial scales - suddenly coastal science can be considered as a
+  data-rich research field. Analyses akin typically use analysis-ready data, hosted at
+  major cloud providers, who simultaneously offer the scientists' computer instances
+  with distributed processing tools to handle the size of the data sets (e.g.,
+  \cite{gorelickGoogleEarthEngine2017}). However, we note that when analyses become more
+  complex, i.e., require specific algorithms,  pre- and post-processing or include data
+  that are not hosted by the cloud provider, the cloud-native, distributed processing
+  workflows are often broken, which, in effect, make the analyses impractical at
+  continental scale.
+
   We believe that the next generation of data-driven coastal models that target
-  continental scales can only be built when: 1) processing workflows are scalable; 2) computations are
-  run in proximity to the data; 3) data are available in cloud-optimized formats; 4) and,
-  data are described following standardized metadata specifications. In this study, we introduce these practices to the coastal research community by showcasing the advantages of cloud-native workflows \parencite{abernatheyCloudNativeRepositoriesBig2021} by two case studies.  
-  
+  continental scales can only be built when: 1) processing workflows are scalable; 2)
+  computations are run in proximity to the data; 3) data are available in
+  cloud-optimized formats; 4) and, data are described following standardized metadata
+  specifications. In this study, we introduce these practices to the coastal research
+  community by showcasing the advantages of cloud-native workflows
+  \parencite{abernatheyCloudNativeRepositoriesBig2021} by two case studies.
+
   In the first example we map building footprints in areas prone to coastal flooding and
   estimate the assets at risk. For this analysis we chunk a coastal flood-risk map into
-  several tiles and incorporate those into a coastal SpatioTemporal Asset Catalog (STAC). The second example benchmarks instantaneous
-  shoreline mapping using cloud-native workflows against conventional methods. With
-  data-proximate computing, processing time is reduced from the order of hours (e.g., \parencite{vosCoastSatGoogleEarth2019}) to seconds per shoreline km, which means that a highly-specialized coastal mapping expedition can be
-  upscaled from regional to global level. 
-  
-  The analyses mostly rely on "core-packages" from the Pangeo project, \parencite{hammanPangeoBigdataEcosystem2018}, with some additional support for scalable geospatial data analysis and cloud I/O, although they can essentially be run on a standard Python Planetary Computer instance.
-  We will publish our code, including self-explanatory Juypter notebooks, at
-  \url{https://github.com/floriscalkoen/egu2023}. 
+  several tiles and incorporate those into a coastal SpatioTemporal Asset Catalog
+  (STAC). The second example benchmarks instantaneous shoreline mapping using
+  cloud-native workflows against conventional methods. With data-proximate computing,
+  processing time is reduced from the order of hours (e.g.,
+  \parencite{vosCoastSatGoogleEarth2019}) to seconds per shoreline km, which means that
+  a highly-specialized coastal mapping expedition can be upscaled from regional to
+  global level.
+
+  The analyses mostly rely on "core-packages" from the Pangeo project,
+  \parencite{hammanPangeoBigdataEcosystem2018}, with some additional support for
+  scalable geospatial data analysis and cloud I/O, although they can essentially be run
+  on a standard Python Planetary Computer instance. We will publish our code, including
+  self-explanatory Juypter notebooks, at \url{https://github.com/floriscalkoen/egu2023}.
 
   To conclude, we foresee that in next years several coastal data products are going to
   be published, of which some may be considered "big data". To incorporate these data
   products into the next generation of coastal models, it is urgently required to agree
   upon protocols for coastal data stewardship. With this study we do not only want to
   show the advantages of scalable coastal data analysis; we mostly want to encourage the
-  coastal research community to adopt FAIR data management principles \parencite{wilkinsonFAIRGuidingPrinciples2016} and workflows in an era of
-  exponential data growth.}
+  coastal research community to adopt FAIR data management principles
+  \parencite{wilkinsonFAIRGuidingPrinciples2016} and workflows in an era of exponential
+  data growth.}
 
 \printbibliography
 
