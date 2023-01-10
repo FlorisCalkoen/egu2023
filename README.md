@@ -30,4 +30,6 @@ following command from the project root:
 mamba env create
 ```
 This will create a new environment, named "coastal", that can be activated using: 
-`mamba activate coastal`. 
+```bash
+mamba activate coastal
+```
