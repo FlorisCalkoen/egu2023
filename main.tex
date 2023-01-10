@@ -1,0 +1,126 @@
+\documentclass[11pt,twoside,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage[english]{babel}
+\usepackage[backend=biber, sorting=ynt]{biblatex}
+\usepackage{hyperref}
+
+\addbibresource{references.bib}
+\author{ Calkoen, Floris \\
+  \texttt{floris.calkoen@deltares.nl}
+  \and Baart, Fedor\\
+  \texttt{fedor.baart@deltares.nl}
+}
+
+\begin{document}
+
+\title{ \textbf{Enabling coastal data science at continental scale}}
+\maketitle
+\abstract{The coastal community widely anticipates that in the next years data-driven
+  studies are going to make essential contributions to bringing about long-term coastal
+  adaptation and mitigation strategies at continental scale (e.g.,
+  \cite{ranasingheNeedNewGeneration2020,turnerSatelliteOpticalImagery2021,vitousekFutureCoastalMonitoring2022}).
+  This expectation is likely triggered by several coastal analyses (e.g.,
+  \cite{luijendijkStateWorldBeaches2018,mentaschiGlobalLongtermObservations2018,murrayGlobalDistributionTrajectory2018})
+  that showed in recent years how Earth Observation data can be used to monitor and
+  track historical change in the coastal zone at unprecedented spatial scales - suddenly
+  coastal science can be considered as a data-rich research field. These analyses have
+  in common that they use publicly-available and analysis-ready data, hosted at major
+  cloud providers, who simultaneously offer the scientists' computer instances
+  altogether with distributed processing tools that are designed to handle the size of
+  these datasets (e.g., \cite{gorelickGoogleEarthEngine2017}). However, we note that
+  when analyses become more complex, i.e., require specific algorithms, (geospatial)
+  pre- and post-processing or require data products that are not hosted by the cloud
+  providers, the cloud-native, distributed processing workflows are broken, which, in
+  effect, make the analyses impractical at continental scale (e.g.,
+  \cite{vosCoastSatGoogleEarth2019}).
+  % For example, \textcite{vosCoastSatGoogleEarth2019} maps instantaneous shorelines at
+  % sub-pixel resolution using the marching-squares algorithm and optionally offers a
+  % correction to account for the tide at the time of image acquisition, but to do so
+  % data have to be downloaded from the server to the local machine. 
+  We believe that the next generation of data-driven coastal models that target
+  continental scales --- which are expected to take advantage of the ever-increasing
+  amount of Earth Observation and coastal data by using algorithms that thrive on data
+  --- can only be built when: 1) processing workflows are scalable; 2) computations are
+  run proximately to the data; 3) data are available in cloud-optimized formats; 4) and,
+  data are described following standardized metadata specifications.
+
+  In this study, we introduce these practices to the coastal research community and
+  showcase the advantages of scalable coastal data analysis by two case studies.  In the
+  first example we map building footprints in areas prone to coastal flooding and
+  estimate the assets at risk. For this analysis we chunk a coastal flood-risk map into
+  several tiles and incorporate those into a coastal STAC catalog. The STAC catalogs are
+  then used to index the data assets from providers and are combined using several
+  scalable geospatial operations. In the second example we benchmark instantaneous
+  shoreline mapping using cloud-native workflows against conventional methods. With
+  data-proximate computing we are able to process xx mb per second, or, in other words,
+  map xx km shoreline per hour, whereas conventional methods
+  \parencite{vosCoastSatGoogleEarth2019} are able to map 500 meter per 2 hours. In
+  practice this means that a highly-specialized coastal mapping expedition can be
+  upscaled from regional to global level. Most of the used software packages used in
+  these analyses are part of the community-driven Pangeo project
+  \parencite{hammanPangeoBigdataEcosystem2018}, although some additional packages were
+  used for scalable geospatial data analysis and cloud I/O.\footnote{The Planetary
+    Computer Python container contains all necessary software packages, which are listed
+    at
+    \url{https://github.com/microsoft/planetary-computer-containers/blob/main/python/environment.yml}}
+  We will publish our code, including self-explanatory Juypter notebooks, at
+  \url{https://github.com/openearth/coclico-workbench/notebooks/coastal_mask_with_building_footprints.ipynb}.
+  Such notebooks may enable coastal scientists, researchers and engineers to deliver
+  interoperable and reproducible coastal data products and/or workflows.
+
+  To conclude, we foresee that in next years several coastal data products are going to
+  be published, of which some may be considered "big data". To incorporate these data
+  products into the next generation of coastal models, it is urgently required to agree
+  upon protocols for coastal data management. With this study we do not only want to
+  show the advantages of scalable coastal data analysis; we mostly want to encourage the
+  coastal community to start a dialogue on how to manage our coastal data in an era of
+  exponential data growth.}
+
+
+% \section{Introduction}
+
+% In recent years we have seen an enormous increase in computing power. Because of the
+% world wide web data are stored in server centre's were computations are divided among
+% many workers. At the same time satellite-data providers have openend their catalog to
+% the public and making code publicly available has become the norm. The increase in
+% computing power altogether with opening up data catalogs and openly sharing workflows
+% have triggered coastal data analysis at spatial scales that were unprecedented.   The
+% studies that triggered that imagination typically rely on analysis ready data,made
+% available by major cloud providers. The advantage of these data products is that they
+% are stored in Cloud-Optimized formats, described in extensive metadata descriptions, a
+% necessary requirement for large scale analysis as the workload has to be divided among
+% a large number of computer instances. The coastal analysis that are required for
+% sustainable coastal zone management include operations and data that are not directly
+% available in the data catalogs from the cloud providers or in their software
+% toolboxes. For instance, instantaneous shoreline mapping requires a tidal correction,
+% which is computable by a tidal model, but not directly available in the data catalog
+% of the cloud providers. To incorporate such variables in coastal data analysis these
+% products have to be formatted and described in such ways that they support continental
+% scale analysis. This analysis aims to demonstrate the power of analysis-ready cloud
+% optimized data analysis in coastal research by following strict metadata conventions
+% and data formats. I believe that such data descriptions and formats are a necessary
+% requirement for delivering the coastal data products that will be used for sustainable
+% coastal management in the 21st century. This analysis used STAC metadata
+% specifications to do a scalable analysis of building footprints within the coastal
+% zone. Also, we use STAC altogether with libraries from the scalable Python paradigm to
+% show how instantaneous shoreline mapping can be performed at continental scale. The
+% advantages of this approach are benchmarked against conventional methods.
+
+% \section{Skeleton} \begin{enumerate} \item Expectation that data-driven studies will
+% be able to deliver coastal data products that are urgently required for coastal
+% management. \item These expectations are most likely created by the continental-scale
+% coastal analysis that were unprecedented in the field. \item These continental
+% typically showed "the state of" or historical analysis of coastal change over time.
+% \item The data and software tools were readily available at the cloud providers. \item
+% But the next generation of coastal data products, which will form the basis for
+% sustainable coastal management, require more complex analysis were coastal data are
+% associated to each other. \item These are not available at the cloud operators. \item
+% We therefore need to adopt clear principles for scalable data analysis.
+% \end{enumerate}
+
+\printbibliography
+
+\end{document}
