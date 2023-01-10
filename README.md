@@ -13,6 +13,10 @@ that demarcates flood-prone areas along the European coast (Lincke et al., in pr
 the second example we benchmark data-proximate shoreline mapping against conventional
 methods. 
 
+## Notebooks
+
+#TODO: add description notebooks. 
+
 ## Installation
 
 This study is built upon the [Pangeo core packages](https://pangeo.io/packages.html)
@@ -33,3 +37,4 @@ This will create a new environment, named "coastal", that can be activated using
 ```bash
 mamba activate coastal
 ```
+
