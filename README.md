@@ -1,4 +1,4 @@
-# Enabling coastal data science at continental scale
+# A novel data ecosystem for coastal analyses
 
 This repository contains an abstract submission about enabling coastal data science at
 continental scale to [EGU 2023](https://www.egu23.eu/). The repository contains both  
